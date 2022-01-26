@@ -1,7 +1,7 @@
 app:
     name: njs-sandbox
-    port: PORT
+    port: $PORT
     logging:
-        level: LOG_LEVEL
+        level: $LOG_LEVEL
 db:
-    url: MONGO_SANDBOX_URL
+    url: $MONGO_SANDBOX_URL

@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Playground to test Node.JS features",
   "main": "index.js",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
   "scripts": {
     "start": "node . | bunyan",
     "dev": "node . | bunyan -o short",

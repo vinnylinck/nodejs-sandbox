@@ -4,6 +4,8 @@
   "description": "Playground to test Node.JS features",
   "main": "index.js",
   "scripts": {
+    "start": "node . | bunyan",
+    "dev":   "node . | bunyan -o short",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/vinnylinck/nodejs-sandbox/issues"
   },
-  "homepage": "https://github.com/vinnylinck/nodejs-sandbox#readme"
+  "homepage": "https://github.com/vinnylinck/nodejs-sandbox#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "bunyan": "^1.8.15",
+    "config": "^3.3.7",
+    "express": "^4.17.2",
+    "js-yaml": "^4.1.0"
+  }
 }

@@ -1,7 +1,8 @@
 app:
     name: njs-sandbox
-    port: $PORT
+    port: 5000
     logging:
-        level: $LOG_LEVEL
+        level: debug
 db:
-    url: $MONGO_SANDBOX_URL
+    url: mongodb://citizix:S3cret@localhost:27017/njs-sandbox?authSource=admin
+

@@ -1,0 +1,6 @@
+app:
+    port: PORT
+    logging:
+        level: LOG_LEVEL
+db:
+    url: MONGO_SANDBOX_URL

@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-sandbox",
+  "version": "1.0.0",
+  "description": "Playground to test Node.JS features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinnylinck/nodejs-sandbox.git"
+  },
+  "keywords": [
+    "Javascript"
+  ],
+  "author": "Vinny Linck <vinnylincK@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinnylinck/nodejs-sandbox/issues"
+  },
+  "homepage": "https://github.com/vinnylinck/nodejs-sandbox#readme"
+}

@@ -12,8 +12,15 @@ const logger = SandLogger.create(
 );
 
 // bootstrapping
-const app = new SandApp(port, dburl);
+const app = new SandApp(port, dburl, logger);
+const shutdown = () => app.Shutdown()
+  .then(() => process.exit(0))
+  .catch(() => process.exit(-2));
 
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);
+
+// run
 logger.info('Starting http server...');
 
 module.exports = app.Run()

@@ -10,6 +10,7 @@
   "scripts": {
     "start": "node . | bunyan",
     "dev": "node . | bunyan -o short",
+    "plain": "node .",
     "test": "eslint --ext .js --ignore-path .gitignore .",
     "prepare": "husky install"
   },
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/vinnylinck/nodejs-sandbox#readme",
   "dependencies": {
+    "bluebird": "^3.7.2",
     "bunyan": "^1.8.15",
     "config": "^3.3.7",
     "express": "^4.17.2",

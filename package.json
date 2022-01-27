@@ -30,7 +30,8 @@
     "bunyan": "^1.8.15",
     "config": "^3.3.7",
     "express": "^4.17.2",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "mongoose": "^6.1.8"
   },
   "devDependencies": {
     "eslint": "^8.7.0",

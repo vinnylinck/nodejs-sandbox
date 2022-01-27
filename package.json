@@ -8,8 +8,7 @@
     "npm": "8.x"
   },
   "scripts": {
-    "start": "node . | bunyan",
-    "dev": "node . | bunyan -o short",
+    "start": "node . | bunyan -o short",
     "plain": "node .",
     "test": "eslint --ext .js --ignore-path .gitignore .",
     "prepare": "husky install"

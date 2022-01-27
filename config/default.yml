@@ -6,3 +6,15 @@ app:
 db:
     url: mongodb://citizix:S3cret@localhost:27017/njs-sandbox?authSource=admin
 
+security:
+    session:
+        secret: keyboard-cat
+        resave: false
+        saveUninitialized: false
+
+    google:
+        clientID: GOOGLE_CLIENT_ID
+        clientSecret: GOOGLE_CLIENT_SECRET
+        callbackURL: /oauth2/redirect/accounts.google.com
+        scope:
+        - profile

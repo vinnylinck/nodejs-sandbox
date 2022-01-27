@@ -5,6 +5,7 @@ const SandLogger = require('./lib/logger');
 const name = config.get('app.name');
 const port = config.get('app.port');
 const dburl = config.get('db.url');
+const secOpts = config.get('security');
 
 const logger = SandLogger.create(
   config.get('app.logging.level'),
@@ -12,7 +13,8 @@ const logger = SandLogger.create(
 );
 
 // bootstrapping
-const app = new SandApp(port, dburl, logger);
+logger.info('Starting application...');
+const app = new SandApp(dburl, logger);
 const shutdown = () => app.Shutdown()
   .then(() => process.exit(0))
   .catch(() => process.exit(-2));
@@ -21,9 +23,7 @@ process.on('SIGTERM', shutdown);
 process.on('SIGINT', shutdown);
 
 // run
-logger.info('Starting http server...');
-
-module.exports = app.Run()
+module.exports = app.Run(port, secOpts)
   .then(() => logger.info(`Running on port: ${port}`))
   .catch((err) => {
     logger.error(err, 'Something went wrong when trying to run the app!!');

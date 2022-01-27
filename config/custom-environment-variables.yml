@@ -4,3 +4,8 @@ app:
         level: LOG_LEVEL
 db:
     url: MONGO_SANDBOX_URL
+
+security:
+    google:
+        clientID: GOOGLE_CLIENT_ID
+        clientSecret: GOOGLE_CLIENT_SECRET

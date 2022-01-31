@@ -30,6 +30,7 @@
   "dependencies": {
     "bunyan": "^1.8.15",
     "config": "^3.3.7",
+    "connect-ensure-login": "^0.1.1",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "csurf": "^1.11.0",

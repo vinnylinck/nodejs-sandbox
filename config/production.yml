@@ -1,3 +1,7 @@
 app:
     logging:
         level: info
+
+security:
+    session:
+        secret: prod-keyboard-cat

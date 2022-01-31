@@ -5,3 +5,6 @@ app:
 security:
     session:
         secret: prod-keyboard-cat
+
+    google:
+        callbackURL: https://njs-sandbox.herokuapp.com/oauth2/redirect/accounts.google.com

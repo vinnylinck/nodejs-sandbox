@@ -12,6 +12,11 @@ security:
         resave: false
         saveUninitialized: false
 
+    cookie:
+        secret: milky-cookie
+        options:
+            secure: true
+
     google:
         clientID: GOOGLE_CLIENT_ID
         clientSecret: GOOGLE_CLIENT_SECRET

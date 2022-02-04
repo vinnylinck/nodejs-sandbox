@@ -1,6 +1,9 @@
 # App specific
 local.yml
 
+# Jetbrains
+.idea/
+
 # Logs
 logs
 *.log

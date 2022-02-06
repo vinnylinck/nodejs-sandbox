@@ -2,8 +2,7 @@ const config = require('config');
 const SandApp = require('./lib/app');
 const SandLogger = require('./lib/logger');
 
-const name = config.get('app.name');
-const port = config.get('app.port');
+const { name, port, templating: tmpOpts } = config.get('app');
 const dburl = config.get('db.url');
 const secOpts = config.get('security');
 
@@ -23,7 +22,7 @@ process.on('SIGTERM', shutdown);
 process.on('SIGINT', shutdown);
 
 // run
-module.exports = app.Run(port, secOpts)
+module.exports = app.Run(port, secOpts, tmpOpts)
   .then(() => logger.info(`Running on port: ${port}`))
   .catch((err) => {
     logger.error(err, 'Something went wrong when trying to run the app!!');

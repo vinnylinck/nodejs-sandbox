@@ -3,6 +3,13 @@ app:
     port: 5000
     logging:
         level: debug
+
+    templating:
+        autoescape: true
+        throwOnUndefined: false
+        watch: false
+        noCache: false
+
 db:
     url: mongodb://citizix:S3cret@localhost:27017/njs-sandbox?authSource=admin
 

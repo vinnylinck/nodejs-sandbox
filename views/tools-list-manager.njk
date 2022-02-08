@@ -1,5 +1,33 @@
 {% extends "base.html" %}
 
 {% block header %}
-Manage lists
+<h2>Manage lists</h2>
+{% endblock %}
+
+{% block main %}
+  <form class="form-style" method="post">
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+    <input type="text" class="input-field" name="name" placeholder="New list name" required/>
+    <input type="submit" value="create list">
+  </form>
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th>UUID</th>
+      <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for list in data %}
+      <tr>
+        <td>{{  list.id }}</td>
+        <td>{{  list.name }}</td>
+      </tr>
+    {% else %}
+      <tr>
+        <td colspan="2" class="wide">This would display lists, if having any in the database...</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

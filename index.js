@@ -13,7 +13,7 @@ const logger = SandLogger.create(
 
 // bootstrapping
 logger.info('Starting application...');
-const app = new SandApp(dburl, logger);
+const app = new SandApp(logger);
 const shutdown = () => app.Shutdown()
   .then(() => process.exit(0))
   .catch(() => process.exit(-2));
@@ -22,7 +22,7 @@ process.on('SIGTERM', shutdown);
 process.on('SIGINT', shutdown);
 
 // run
-module.exports = app.Run(port, secOpts, tmpOpts)
+module.exports = app.Run(port, dburl, secOpts, tmpOpts)
   .then(() => logger.info(`Running on port: ${port}`))
   .catch((err) => {
     logger.error(err, 'Something went wrong when trying to run the app!!');

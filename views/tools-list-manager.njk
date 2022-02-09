@@ -16,6 +16,8 @@
       <th>UUID</th>
       <th>Name</th>
       <th>Items</th>
+      <th>Create date</th>
+      <th>Last update</th>
     </tr>
     </thead>
     <tbody>
@@ -24,6 +26,8 @@
         <td>{{  list.id }}</td>
         <td>{{  list.name }}</td>
         <td><a class="tablelink" href="/tools/lists/{{ list.id }}/items">{{  list.items.length }}</a></td>
+        <td><small>{{ list.createdAt }}</small></td>
+        <td><small>{{ list.updatedAt }}</small></td>
       </tr>
     {% else %}
       <tr>

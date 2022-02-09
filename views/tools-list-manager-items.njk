@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="../../../base.css" />
+{% endblock %}
+
 {% block goback %}
-  <p class="backlink"><a href="/tools/lists"><< go lists</a></p>
+  {{ utils.backlink('/tools/lists', 'go lists') }}
 {% endblock %}
 
 {% block header %}
@@ -10,8 +14,8 @@
 
 {% block main %}
   <form class="form-style" method="post">
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-    <input type="text" class="input-field" name="content" placeholder="New item" required/>
+    <input type="hidden" name="_csrf" id="token" value="{{ csrfToken }}" />
+    <input type="text"   class="input-field" name="content" placeholder="New item" required/>
     <input type="submit" value="add item">
   </form>
   <table class="styled-table">
@@ -19,7 +23,9 @@
     <tr>
       <th>UUID</th>
       <th>Content</th>
-      <th>Created at</th>
+      <th>Create date</th>
+      <th>Last update</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -27,14 +33,20 @@
       <tr>
         <td>{{ item.id }}</td>
         <td>{{ item.content }}</td>
-        <td>{{ item.createdAt }}</td>
+        <td><small>{{ item.createdAt }}</small></td>
+        <td><small>{{ item.updatedAt }}</small></td>
+        <td><small><a href="" onclick="deleteItem('{{ item.id }}')">Remove</a></small></td>
       </tr>
     {% else %}
       <tr>
-        <td colspan="3" class="wide">This would display items, if having any in the list...</td>
+        <td colspan="5" class="wide">This would display items, if having any in the list...</td>
       </tr>
     {% endfor %}
     </tbody>
   </table>
   <small>List(name = {{ data.name }}; oid={{ data.id }};)</small>
+
+  <script src="../../../tools-list-manager-items.js"></script>
 {% endblock %}
+
+

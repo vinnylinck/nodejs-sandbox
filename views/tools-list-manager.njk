@@ -15,6 +15,7 @@
     <tr>
       <th>UUID</th>
       <th>Name</th>
+      <th>Items</th>
     </tr>
     </thead>
     <tbody>
@@ -22,10 +23,11 @@
       <tr>
         <td>{{  list.id }}</td>
         <td>{{  list.name }}</td>
+        <td><a class="tablelink" href="/tools/lists/{{ list.id }}/items">{{  list.items.length }}</a></td>
       </tr>
     {% else %}
       <tr>
-        <td colspan="2" class="wide">This would display lists, if having any in the database...</td>
+        <td colspan="3" class="wide">This would display lists, if having any in the database...</td>
       </tr>
     {% endfor %}
     </tbody>

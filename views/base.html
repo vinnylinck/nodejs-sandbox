@@ -8,6 +8,20 @@
       font-variant: normal;
     }
 
+    .backlink {
+      text-align: right;
+      font-size: x-small;
+      font-style: italic;
+    }
+
+    .backlink a {
+      text-decoration: none;
+    }
+
+    .tablelink {
+      text-decoration: none;
+    }
+
     .styled-table {
       border-collapse: collapse;
       margin: 25px 0;
@@ -98,6 +112,10 @@
   </style>
 </head>
 <body>
+{% block goback %}
+<p class="backlink"><a href="/"><< go home</a></p>
+{% endblock %}
+
 {% block header %}
 <h1><small>Sandbox Tools</small></h1>
 {% endblock %}

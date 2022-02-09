@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block goback %}
+  <p class="backlink"><a href="/tools/lists"><< go lists</a></p>
+{% endblock %}
+
+{% block header %}
+  <h3>Manage list items</h3>
+{% endblock %}
+
+{% block main %}
+  <form class="form-style" method="post">
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+    <input type="text" class="input-field" name="content" placeholder="New item" required/>
+    <input type="submit" value="add item">
+  </form>
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th>UUID</th>
+      <th>Content</th>
+      <th>Created at</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in data.items %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.content }}</td>
+        <td>{{ item.createdAt }}</td>
+      </tr>
+    {% else %}
+      <tr>
+        <td colspan="3" class="wide">This would display items, if having any in the list...</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <small>List(name = {{ data.name }}; oid={{ data.id }};)</small>
+{% endblock %}

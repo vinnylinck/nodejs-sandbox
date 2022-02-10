@@ -24,7 +24,7 @@
     <tbody>
     {% for list in data %}
       <tr>
-        <td>{{  list.id }}</td>
+        <td><a class="tablelink" href="/tools/lists/{{ list.id }}">{{  list.id }}</a></td>
         <td>{{  list.name }}</td>
         <td><a class="tablelink" href="/tools/lists/{{ list.id }}/items">{{  list.items.length }}</a></td>
         <td><small>{{ list.createdAt }}</small></td>

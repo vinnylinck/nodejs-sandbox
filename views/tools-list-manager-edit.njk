@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="../../../base.css" />
+{% endblock %}
+
+{% block goback %}
+  {{ utils.backlink('/tools/lists', 'go lists') }}
+{% endblock %}
+
+{% block header %}
+  <h2>Edit list</h2>
+{% endblock %}
+
+{% block main %}
+  <p class="form-style">
+    <input type="hidden" name="_csrf" id="token" value="{{ csrfToken }}" />
+    <input type="text"   class="input-field" name="name" id="list-name" placeholder="List name" value="{{ data.name }}" required/>
+    <input type="button" value="save" onclick="updateList()" />
+  </p>
+  <small>List(name = {{ data.name }}; oid={{ data.id }};)</small>
+
+  <script src="../../../tools-list-manager.js"></script>
+{% endblock %}
+
+

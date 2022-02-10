@@ -2,6 +2,13 @@
 <p class="backlink"><a id="back-link" href="{{ href }}"><< {{ text }}</a></p>
 {% endmacro %}
 
+{% macro scopeCheckBox(ref, checked, hook) %}
+  {% if checked %}
+   <input name="{{ ref }}" type="checkbox" onclick="{{ hook }}"  checked /> {{ ref }}
+  {% else %}
+   <input name="{{ ref }}"type="checkbox" onclick="{{ hook }}"  /> {{ ref }}
+  {% endif %}
+{% endmacro %}
 
 
 

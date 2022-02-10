@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <h2>Access management</h2>
+{% endblock %}
+
+{% block main %}
+  <small>Access counter: # {{ naccess }}</small>
+  <input type="hidden" name="_csrf" id="token" value="{{ csrfToken }}" />
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th>User properties</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for key, value in data %}
+      <tr>
+        <td><small><b>{{ key }}</b></small></td>
+        <td><small>{{ value }}</small></td>
+     </tr>
+    {% else %}
+      <tr>
+        <td colspan="2" class="wide">No props found.</td>
+      </tr>
+    {% endfor %}
+
+    {% if hasProps %}
+      <tr>
+        <td><small><b>scopes</b></small></td>
+        <td>
+          <small>
+            {% for scope in scopeMap %}
+            {{ utils.scopeCheckBox(scope.name, scope.checked, 'toggleScope(this)') }}<br>
+            {% endfor %}
+          </small>
+        </td>
+      </tr>
+    {% endif %}
+    </tbody>
+  </table>
+
+  <script src="../../../tools-access-manager.js"></script>
+{% endblock %}

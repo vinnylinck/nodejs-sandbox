@@ -2,4 +2,5 @@ globals:
     window: true
     document: true
     alert: true
+    confirm: true
     fetch: true

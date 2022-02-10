@@ -6,7 +6,7 @@
 
 {% block main %}
   <form class="form-style" method="post">
-    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+    <input type="hidden" name="_csrf" id="token" value="{{ csrfToken }}" />
     <input type="text" class="input-field" name="name" placeholder="New list name" required/>
     <input type="submit" value="create list">
   </form>
@@ -18,6 +18,7 @@
       <th>Items</th>
       <th>Create date</th>
       <th>Last update</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -28,12 +29,15 @@
         <td><a class="tablelink" href="/tools/lists/{{ list.id }}/items">{{  list.items.length }}</a></td>
         <td><small>{{ list.createdAt }}</small></td>
         <td><small>{{ list.updatedAt }}</small></td>
+        <td><small><a href="" onclick="deleteList('{{ list.id }}')">Remove</a></small></td>
       </tr>
     {% else %}
       <tr>
-        <td colspan="3" class="wide">This would display lists, if having any in the database...</td>
+        <td colspan="5" class="wide">This would display lists, if having any in the database...</td>
       </tr>
     {% endfor %}
     </tbody>
   </table>
+
+  <script src="../../../tools-list-manager.js"></script>
 {% endblock %}

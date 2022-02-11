@@ -3,3 +3,11 @@
 {% block header %}
   <h2>Event listener</h2>
 {% endblock %}
+
+{% block main %}
+<form class="form-style" method="get" target="_blank" action="/tools/events/stream">
+  <input type="hidden" name="_csrf" id="token" value="{{ csrfToken }}" />
+  <input type="text"   class="input-field" name="apikey" placeholder="API Access Key" required/>
+  <input type="submit" value="listen events">
+</form>
+{% endblock %}

@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block main %}
-  <small>Access counter: # {{ naccess }}</small>
+  <small>Access counter: # {{ naccess }} </small>
+  <p align=right><button onclick="wipeOut()">Delete all user data</button></p>
   <input type="hidden" name="_csrf" id="token" value="{{ csrfToken }}" />
   <table class="styled-table">
     <thead>

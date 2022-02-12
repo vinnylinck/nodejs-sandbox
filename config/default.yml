@@ -11,9 +11,11 @@ app:
         noCache: false
 
 db:
-    url: mongodb://citizix:S3cret@localhost:27017/njs-sandbox?authSource=admin
+    url: mongodb://localhost:27017/njs-sandbox
 
 security:
+    paseto:
+        privateKey: default-private-key
     session:
         secret: keyboard-cat
         resave: false

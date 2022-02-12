@@ -46,3 +46,28 @@ function clearSessions() {
     window.location.reload();
   });
 }
+
+// eslint-disable-next-line no-unused-vars
+function wipeOut() {
+  const uri = `${window.location.href}/data`;
+  const token = document.getElementById('token').value;
+
+  // eslint-disable-next-line no-restricted-globals, no-alert
+  if (!confirm('Do you want delete all user data?')) {
+    return;
+  }
+
+  fetch(
+    uri,
+    {
+      method: 'DELETE',
+      headers: { 'XSRF-TOKEN': token },
+    },
+  ).then((res) => {
+    if (!res.ok) {
+      alert(res.statusText);// eslint-disable-line no-alert
+    }
+
+    window.location.href = '/bye';
+  });
+}

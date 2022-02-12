@@ -1,2 +1,11 @@
+is_test: true
+
+app:
+    logging:
+        level: error
+
 db:
     url: mongodb://citizix:S3cret@localhost:27017/njs-sandbox?authSource=admin
+
+
+

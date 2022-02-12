@@ -1,0 +1,10 @@
+globals:
+    describe: true
+    it: true
+
+rules:
+    no-restricted-syntax: off
+    prefer-arrow-callback: off
+    no-continue: off
+    no-extra-boolean-cast: off
+    func-names: off

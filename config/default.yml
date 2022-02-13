@@ -11,7 +11,7 @@ app:
         noCache: false
 
 db:
-    url: mongodb://localhost:27017/njs-sandbox
+    url: mongodb://localhost:27001,localhost:27002,localhost:27003/njs-sandbox
 
 security:
     paseto:

@@ -106,11 +106,11 @@ So, I added Mocha exactly to give another shot and use it again. I still don't l
 ## Tech debt
 
 There are so many things I would like to do here:
-- [] improve unit test coverage;
-- [] measure unit test coverage;
-- [] add integration tests;
-- [] switch test framework;
-- [] add some front-end testing;
-- [] make the code human  readable;
-- [] add more cool features into it exploring future Node versions and libraries (like Paseto, Mongoose Schemas, Nunjucks, etc.);
+- [ ] improve unit test coverage;
+- [ ] measure unit test coverage;
+- [ ] add integration tests;
+- [ ] switch test framework;
+- [ ] add some front-end testing;
+- [ ] make the code human  readable;
+- [ ] add more cool features into it exploring future Node versions and libraries (like Paseto, Mongoose Schemas, Nunjucks, etc.);
 

@@ -7,7 +7,7 @@ const dburl = config.get('db.url');
 const secOpts = config.get('security');
 
 const logger = SandLogger.create(
-  config.get('src.logging.level'),
+  config.get('app.logging.level'),
   name,
 );
 

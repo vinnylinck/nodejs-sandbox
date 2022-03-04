@@ -69,7 +69,7 @@ describe('AppConfig', function () {
     const fc = fs.readFileSync('./config/production.yml', 'utf8');
     const data = yaml.load(fc);
 
-    // checking src.logging.level
+    // checking app.logging.level
     it('should have logging level set as INFO', function () {
       assert.ok(!!data && data.app && data.app.logging && data.app.logging.level);
       assert.equal(data.app.logging.level, 'info');

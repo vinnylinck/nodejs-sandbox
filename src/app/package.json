@@ -8,9 +8,9 @@
     "npm": "8.x"
   },
   "scripts": {
-    "start": "node .. | bunyan",
-    "dev": "node .. | bunyan -o short",
-    "plain": "node ..",
+    "start": "node . | bunyan",
+    "dev": "node . | bunyan -o short",
+    "plain": "node .",
     "lint": "eslint --ext .js --ignore-path ../../.gitignore ..",
     "test": " env-cmd -f test/.env mocha --recursive './test/**/*.js'"
   },

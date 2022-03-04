@@ -1,0 +1,58 @@
+{
+  "name": "nodejs-sandbox",
+  "version": "1.0.0",
+  "description": "Playground to test Node.JS features",
+  "main": "index.js",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
+  "scripts": {
+    "start": "node . | bunyan",
+    "dev": "node . | bunyan -o short",
+    "plain": "node .",
+    "test": "env-cmd -f ./test/.env mocha --recursive './test/**/*.js'",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinnylinck/nodejs-sandbox.git"
+  },
+  "keywords": [
+    "Javascript"
+  ],
+  "author": "Vinny Linck <vinnylincK@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinnylinck/nodejs-sandbox/issues"
+  },
+  "homepage": "https://github.com/vinnylinck/nodejs-sandbox#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "bunyan": "^1.8.15",
+    "config": "^3.3.7",
+    "connect-ensure-login": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "js-yaml": "^4.1.0",
+    "mongoose": "^6.1.8",
+    "nunjucks": "^3.2.3",
+    "paseto": "^3.1.0",
+    "passport": "^0.5.2",
+    "passport-google-oidc": "^0.1.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.3",
+    "env-cmd": "^10.1.0",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "husky": "^7.0.0",
+    "mocha": "^9.2.0"
+  }
+}

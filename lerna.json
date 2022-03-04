@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "npmClient": "npm",
-  "packages": ["src/*"],
+  "packages": ["packages/*"],
   "bootstrap": {
     "npmClientArgs": ["--no-package-lock"]
   }

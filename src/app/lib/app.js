@@ -62,7 +62,7 @@ class SandApp {
     this.#log.debug('Initialize database schema...');
     await db.setup(dbUrl, this.#log);
 
-    // app setup
+    // src setup
     this.app = express();
     this.app.use(logMiddleware(this.#log));
     this.app.use(express.json());

@@ -6,14 +6,14 @@ const fs = require('fs');
 const kv = [
   { key: 'is_test', type: 'boolean', value: true },
   { key: 'app', type: 'object' },
-  { key: 'app.port', type: 'number' },
-  { key: 'app.logging', type: 'object' },
-  { key: 'app.logging.level', type: 'string', value: 'error' },
-  { key: 'app.templating', type: 'object' },
-  { key: 'app.templating.autoescape', type: 'boolean', value: true },
-  { key: 'app.templating.throwOnUndefined', type: 'boolean', value: true },
-  { key: 'app.templating.watch', type: 'boolean', value: true },
-  { key: 'app.templating.noCache', type: 'boolean', value: true },
+  { key: 'src.port', type: 'number' },
+  { key: 'src.logging', type: 'object' },
+  { key: 'src.logging.level', type: 'string', value: 'error' },
+  { key: 'src.templating', type: 'object' },
+  { key: 'src.templating.autoescape', type: 'boolean', value: true },
+  { key: 'src.templating.throwOnUndefined', type: 'boolean', value: true },
+  { key: 'src.templating.watch', type: 'boolean', value: true },
+  { key: 'src.templating.noCache', type: 'boolean', value: true },
   { key: 'db', type: 'object' },
   { key: 'db.url', type: 'string' },
   { key: 'security', type: 'object' },
@@ -69,14 +69,14 @@ describe('AppConfig', function () {
     const fc = fs.readFileSync('./config/production.yml', 'utf8');
     const data = yaml.load(fc);
 
-    // checking app.logging.level
+    // checking src.logging.level
     it('should have logging level set as INFO', function () {
       assert.ok(!!data && data.app && data.app.logging && data.app.logging.level);
       assert.equal(data.app.logging.level, 'info');
     });
 
     // checking security.google.callbackURL
-    it('should have google callbackURL pointing to Heroku app', function () {
+    it('should have google callbackURL pointing to Heroku src', function () {
       assert.ok(
         !!data && data.security
         && data.security.google

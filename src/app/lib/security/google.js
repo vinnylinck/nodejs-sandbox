@@ -53,7 +53,7 @@ class GoogleAuth {
     }).exec();
 
     if (!fc) {
-      // The account at Google has not logged in to this app before.  Create a
+      // The account at Google has not logged in to this src before.  Create a
       // new record and associate it with the Google account.
       fc = await this.#federatedCredentials.create({
         provider: issuer,

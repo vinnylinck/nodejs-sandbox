@@ -1,1 +1,1 @@
-web: npx lerna run start --scope=nodejs-sandbox
+web: cd src/app && npm start

@@ -1,1 +1,1 @@
-web: npx lerna run start --scope=app
+web: npx lerna run start --scope=nodejs-sandbox

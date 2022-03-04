@@ -4,7 +4,8 @@
   "scripts": {
     "prepare": "husky install",
     "precommit:app": "lerna run lint && lerna run test",
-    "precommit": "npm-run-all precommit:*"
+    "precommit": "npm-run-all precommit:*",
+    "postinstall": "npx lerna bootstrap"
   },
   "devDependencies": {
     "chokidar": "^3.5.3",

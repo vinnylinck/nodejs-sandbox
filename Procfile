@@ -1,0 +1,1 @@
+web: npx lerna run start --scope=app

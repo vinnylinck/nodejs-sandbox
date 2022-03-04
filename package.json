@@ -2,10 +2,10 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "postinstall": "npx lerna bootstrap",
     "prepare": "npx husky install",
     "precommit:app": "lerna run lint && lerna run test",
-    "precommit": "npm-run-all precommit:*",
-    "postinstall": "npx lerna bootstrap"
+    "precommit": "npm-run-all precommit:*"
   },
   "engines": {
     "node": "16.x",

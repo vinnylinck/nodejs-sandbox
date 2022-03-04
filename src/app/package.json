@@ -8,12 +8,11 @@
     "npm": "8.x"
   },
   "scripts": {
-    "start": "node . | bunyan",
-    "dev": "node . | bunyan -o short",
-    "plain": "node .",
-    "test": "env-cmd -f ./test/.env mocha --recursive './test/**/*.js'",
-    "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "prepare": "husky install"
+    "start": "node .. | bunyan",
+    "dev": "node .. | bunyan -o short",
+    "plain": "node ..",
+    "test": "env-cmd -f test/.env mocha --recursive './test/**/*.js'",
+    "lint": "eslint --ext .js --ignore-path .gitignore .."
   },
   "repository": {
     "type": "git",
@@ -46,13 +45,5 @@
     "passport": "^0.5.2",
     "passport-google-oidc": "^0.1.0",
     "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "chokidar": "^3.5.3",
-    "env-cmd": "^10.1.0",
-    "eslint": "^8.7.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "husky": "^7.0.0",
-    "mocha": "^9.2.0"
   }
 }

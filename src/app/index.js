@@ -7,7 +7,7 @@ const dburl = config.get('db.url');
 const secOpts = config.get('security');
 
 const logger = SandLogger.create(
-  config.get('app.logging.level'),
+  config.get('src.logging.level'),
   name,
 );
 
@@ -25,6 +25,6 @@ process.on('SIGINT', shutdown);
 module.exports = app.Run(port, dburl, secOpts, tmpOpts)
   .then(() => logger.info(`Running on port: ${port}`))
   .catch((err) => {
-    logger.error(err, 'Something went wrong when trying to run the app!!');
+    logger.error(err, 'Something went wrong when trying to run the src!!');
     process.exit(-1);
   });

@@ -6,7 +6,10 @@
     "lint": "eslint --ext .js --ignore-path ../../.gitignore ."
   },
   "keywords": [
-    "Javascript"
+    "Javascript",
+    "njs-sandbox",
+    "mongoose",
+    "mongo"
   ],
   "author": "Vinny Linck <vinnylincK@gmail.com>",
   "license": "ISC",

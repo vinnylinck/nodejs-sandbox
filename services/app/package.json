@@ -1,32 +1,21 @@
 {
-  "name": "nodejs-sandbox",
+  "name": "webapp",
   "version": "1.0.0",
   "description": "Playground to test Node.JS features",
+  "private": true,
   "main": "index.js",
-  "engines": {
-    "node": "16.x",
-    "npm": "8.x"
-  },
   "scripts": {
     "start": "node . | bunyan",
     "dev": "node . | bunyan -o short",
     "plain": "node .",
-    "lint": "eslint --ext .js --ignore-path ../../.gitignore ..",
+    "lint": "eslint --ext .js --ignore-path ../../.gitignore .",
     "test": " env-cmd -f test/.env mocha --recursive './test/**/*.js'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vinnylinck/nodejs-sandbox.git"
   },
   "keywords": [
     "Javascript"
   ],
   "author": "Vinny Linck <vinnylincK@gmail.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vinnylinck/nodejs-sandbox/issues"
-  },
-  "homepage": "https://github.com/vinnylinck/nodejs-sandbox#readme",
   "dependencies": {
     "bluebird": "^3.7.2",
     "bunyan": "^1.8.15",
@@ -39,7 +28,6 @@
     "express-session": "^1.17.2",
     "express-validator": "^6.14.0",
     "js-yaml": "^4.1.0",
-    "mongoose": "^6.1.8",
     "nunjucks": "^3.2.3",
     "paseto": "^3.1.0",
     "passport": "^0.5.2",

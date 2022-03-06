@@ -1,4 +1,5 @@
 const Promise = require('bluebird');
+const { models } = require('njs-sandbox-commons/db');
 const { debugRequest } = require('../logger');
 const {
   ValidateListName,
@@ -8,16 +9,14 @@ const {
   ValidateItemPatch,
   CheckValidationErr,
 } = require('./utils');
-
-const { models } = require('../db');
-const { CheckScopes, list: scopes } = require('../security/scopes');
+const { CheckScopes, list: scopes } = require('../security/scope-mw');
 
 exports.Load = [
   CheckScopes(scopes.LIST_READ),
 
   // render page with lists found in the db
   (req, res) => Promise
-    .resolve(models().Lists.find({}))
+    .resolve(models().Lists.find({ owner: req.user.id }))
     .tap((data) => req.log.trace('Lists.find()', data))
     .then((data) => res.render('tools-list-manager', { csrfToken: req.csrfToken(), data }))
     .tapCatch((err) => req.log.error(err))
@@ -32,7 +31,7 @@ exports.Post = [
 
   // here goes the logic for the handler
   (req, res) => Promise
-    .resolve(models().Lists.create({ name: req.body.name }))
+    .resolve(models().Lists.create({ name: req.body.name, owner: req.user.id }))
     .tap((out) => req.log.trace('created list: ', out))
     .then(() => res.redirect(req.get('referer')))
     .tapCatch((err) => req.log.error(err))
@@ -100,7 +99,7 @@ exports.UpdateList = [
       }
     })
     .tapCatch((err) => req.log.error(err))
-    .catch((err) => res.status(500).send(`Error deleting list: ${err}`)),
+    .catch((err) => res.status(500).send(`Error updating list: ${err}`)),
 ];
 
 exports.LoadItems = [

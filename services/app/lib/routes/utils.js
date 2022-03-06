@@ -1,9 +1,11 @@
+const Promise = require('bluebird');
 const {
   body,
   param,
   query,
   validationResult,
 } = require('express-validator');
+const { models } = require('njs-sandbox-commons/db');
 
 exports.ValidateListName = body('name', 'missing list name')
   .trim()
@@ -40,5 +42,27 @@ exports.CheckValidationErr = (req, res, next) => {
     res.status(400).json({ errors: errors.array() });
   }
 };
+
+exports.Wipe = (owner) => Promise
+  .resolve(models().Lists.find({ owner }))
+  .then((lists) => {
+    const listIds = [];
+    let itemIds = [];
+
+    if (!lists || !lists.length) {
+      return { listIds, itemIds };
+    }
+
+    lists.forEach((l) => {
+      listIds.push(l.id);
+      itemIds = [...itemIds, ...l.items];
+    });
+
+    return { listIds, itemIds };
+  })
+  .then((targets) => Promise.all([
+    models().Lists.deleteMany({ _id: { $in: targets.listIds } }),
+    models().Items.deleteMany({ _id: { $in: targets.itemIds } }),
+  ]));
 
 module.exports = exports;

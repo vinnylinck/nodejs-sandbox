@@ -1,4 +1,4 @@
-const { list: scopes } = require('../../security/scopes');
+const { scopes } = require('../../security');
 
 const key = 'FederatedCredentials';
 

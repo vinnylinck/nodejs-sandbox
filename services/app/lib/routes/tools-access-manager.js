@@ -1,6 +1,7 @@
 const Promise = require('bluebird');
-const { models, collection } = require('../db');
-const { list: scopes } = require('../security/scopes');
+const { models, collection } = require('njs-sandbox-commons/db');
+const { list: scopes } = require('../security/scope-mw');
+const utils = require('./utils');
 
 exports.Load = ({ csrfToken, log, user }, res) => Promise
   .resolve(collection('sessions'))
@@ -76,7 +77,7 @@ exports.DeleteSessions = ({ session, log }, res) => Promise
   .tapCatch((err) => log.error(err))
   .catch((err) => res.status(500).send(`Error deleting user sessions: ${err}`));
 
-exports.DeleteData = ({ session, log }, res) => Promise
+exports.DeleteData = ({ user, session, log }, res) => Promise
   .resolve(collection('sessions'))
   .then((raw) => raw.find({}))
   .then((cursor) => cursor.toArray())
@@ -89,6 +90,8 @@ exports.DeleteData = ({ session, log }, res) => Promise
   .tap((out) => log.trace('sessions.deleteMany()', out))
   .then(() => models().FederatedCredentials.deleteOne({ _id: session.passport.user.id }))
   .tap((out) => log.trace('FederatedCredentials.deleteOne()', out))
+  .then(() => utils.Wipe(user.id))
+  .tap((summary) => log.warn('Wiped data:', summary))
   .then(() => res.status(200).end())
   .tapCatch((err) => log.error(err))
   .catch((err) => res.status(500).send(`Error deleting user data: ${err}`));

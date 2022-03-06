@@ -1,3 +1,5 @@
+const { scopes: dataScopes } = require('njs-sandbox-commons/security');
+
 const CheckScopes = (...required) => (req, res, next) => {
   const missing = [];
   let allowed = true;
@@ -21,11 +23,5 @@ const CheckScopes = (...required) => (req, res, next) => {
 
 module.exports = {
   CheckScopes,
-  list: {
-    LIST_READ: 'list.read',
-    LIST_WRITE: 'list.write',
-    ITEM_READ: 'item.read',
-    ITEM_WRITE: 'item.write',
-    EVENT_READ: 'event.read',
-  },
+  list: dataScopes,
 };

@@ -1,0 +1,18 @@
+{
+  "name": "tssworker",
+  "version": "1.0.0",
+  "description": "Playground to test Node.JS features - worker",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vinny Linck <vinnylincK@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "bunyan": "^1.8.15",
+    "config": "^3.3.7",
+    "js-yaml": "^4.1.0"
+  }
+}

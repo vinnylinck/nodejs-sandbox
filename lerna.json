@@ -1,8 +1,12 @@
 {
   "version": "1.0.0",
   "npmClient": "npm",
-  "packages": ["services/*"],
-  "bootstrap": {
-    "npmClientArgs": ["--no-package-lock"]
-  }
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": ["--no-package-lock"]
+    }
+  },
+  "packages": [
+    "services/*"
+  ]
 }

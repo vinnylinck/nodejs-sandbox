@@ -1,7 +1,7 @@
 const Promise = require('bluebird');
 const { sign, verify, bytesToKeyObject } = require('paseto').V4;
-const { CheckScopes, list: scopes } = require('../security/scopes');
-const { models } = require('../db');
+const { models } = require('njs-sandbox-commons/db');
+const { CheckScopes, list: scopes } = require('../security/scope-mw');
 const { ValidateStreamParams, CheckValidationErr } = require('./utils');
 
 exports.Load = [

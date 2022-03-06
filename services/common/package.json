@@ -1,6 +1,6 @@
 {
   "name": "njs-sandbox-commons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library to support db connection and data access with schemas",
   "scripts": {
     "lint": "eslint --ext .js --ignore-path ../../.gitignore ."

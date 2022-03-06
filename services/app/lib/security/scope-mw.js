@@ -1,4 +1,4 @@
-const { scopes: dataScopes } = require('njs-sandbox-commons/security');
+const { security } = require('njs-sandbox-commons');
 
 const CheckScopes = (...required) => (req, res, next) => {
   const missing = [];
@@ -23,5 +23,5 @@ const CheckScopes = (...required) => (req, res, next) => {
 
 module.exports = {
   CheckScopes,
-  list: dataScopes,
+  list: security.scopes,
 };

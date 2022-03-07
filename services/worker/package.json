@@ -4,9 +4,7 @@
   "description": "Playground to test Node.JS features - worker",
   "private": true,
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "Vinny Linck <vinnylincK@gmail.com>",
   "license": "ISC",
   "dependencies": {

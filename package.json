@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "npx lerna bootstrap",
     "prepare": "npx husky install",
-    "precommit:all": "lerna run lint && lerna run test",
+    "precommit:all": "npx lerna run lint && npx lerna run test",
     "precommit": "npm-run-all precommit:*"
   },
   "devDependencies": {

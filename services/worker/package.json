@@ -1,6 +1,6 @@
 {
   "name": "tssworker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Playground to test Node.JS features - worker",
   "private": true,
   "main": "index.js",

@@ -6,10 +6,11 @@ const cookieParser = require('cookie-parser');
 const csrf = require('csurf');
 const MongoStore = require('connect-mongo');
 const path = require('path');
-const { db } = require('njs-sandbox-commons');
+const { db, logger: CommonLogger } = require('njs-sandbox-commons');
 const routes = require('./routes');
 const GoogleAuth = require('./security/google');
-const { logMiddleware, errHandler } = require('./logger');
+
+const { logMiddleware, errHandler } = CommonLogger;
 
 class SandApp {
   #auth;

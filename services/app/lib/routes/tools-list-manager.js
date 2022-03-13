@@ -1,6 +1,8 @@
 const Promise = require('bluebird');
-const { models } = require('njs-sandbox-commons/db');
-const { debugRequest } = require('../logger');
+const commons = require('njs-sandbox-commons/db');
+
+const { models } = commons.db;
+const { debugRequest } = commons.logger;
 const {
   ValidateListName,
   ValidateListParam,

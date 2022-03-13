@@ -1,16 +1,22 @@
 {
-  "name": "tssworker",
+  "name": "njsworker",
   "version": "1.0.2",
   "description": "Playground to test Node.JS features - worker",
   "private": true,
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node . | bunyan",
+    "dev": "node . | bunyan -o short",
+    "plain": "node .",
+    "lint": "eslint --ext .js --ignore-path ../../.gitignore ."
+  },
   "author": "Vinny Linck <vinnylincK@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.7.2",
     "bunyan": "^1.8.15",
     "config": "^3.3.7",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "njs-sandbox-commons": "^1.0.2"
   }
 }

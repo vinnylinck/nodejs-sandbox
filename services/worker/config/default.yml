@@ -1,0 +1,7 @@
+app:
+    name: njs-sandbox
+    logging:
+        level: debug
+
+db:
+    url: mongodb://localhost:27001,localhost:27002,localhost:27003/njs-sandbox

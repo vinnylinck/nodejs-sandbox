@@ -20,6 +20,7 @@ exports.setup = async (uri, logger) => {
     db = await mongoose.connect(uri);
   }
 
+  this.addModel(schemas.Audit);
   this.addModel(schemas.Items);
   this.addModel(schemas.Lists);
   this.addModel(schemas.FederatedCredentials);

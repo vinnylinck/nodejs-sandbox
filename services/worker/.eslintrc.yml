@@ -3,3 +3,6 @@ extends:
 
 parserOptions:
     ecmaVersion: 13
+
+rules:
+    no-underscore-dangle: off

@@ -17,6 +17,7 @@
   "author": "Vinny Linck <vinnylincK@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bunyan": "^1.8.15",
     "bluebird": "^3.7.2",
     "config": "^3.3.7",
     "connect-ensure-login": "^0.1.1",

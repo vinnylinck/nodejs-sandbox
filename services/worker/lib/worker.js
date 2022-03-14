@@ -14,6 +14,32 @@ class WorkerApp {
 
     // starting
     this.#log.debug('Listening database changes...');
+
+    // listening auditable entities
+    db.models().Lists.watch().on('change', this.Handler.bind(this));
+    db.models().Items.watch().on('change', this.Handler.bind(this));
+  }
+
+  Handler(ev) {
+    const { Audit } = db.models();
+    const doc = {
+      entity: ev.ns.coll,
+      operation: ev.operationType,
+      opsTs: new Date(ev.clusterTime.getHighBits() * 1000),
+      docId: ev.documentKey._id,
+    };
+
+    // grabbing document
+    if (doc.operation === 'insert') {
+      doc.content = JSON.stringify(ev.fullDocument);
+    } else if (doc.operation === 'update') {
+      doc.content = JSON.stringify(ev.updateDescription);
+    }
+
+    Promise
+      .resolve(Audit.create(doc))
+      .then(() => this.#log.debug(`audited: _id=${doc.docId}; col=${doc.entity}; op=${doc.operation};`))
+      .catch((err) => this.#log.error('audit error:', err));
   }
 
   async Stop() {

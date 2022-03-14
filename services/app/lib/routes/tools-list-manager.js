@@ -1,5 +1,5 @@
 const Promise = require('bluebird');
-const commons = require('njs-sandbox-commons/db');
+const commons = require('njs-sandbox-commons');
 
 const { models } = commons.db;
 const { debugRequest } = commons.logger;
